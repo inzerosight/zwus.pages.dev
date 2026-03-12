@@ -1,1 +1,144 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>ZWUS</title>
+  <meta name="description" content="Zero Width Unicode Standard">
+  <style>
+    :root {
+      --bg: #fff;
+      --fg: #000;
+      --muted: #111;
+      --border: #000;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100svh;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+    }
+
+    main {
+      width: 100%;
+      height: 100%;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 8vw, 4rem);
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      max-width: 10ch;
+      text-wrap: balance;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .npm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 64px;
+      height: 64px;
+      padding: 0 22px;
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--fg);
+      font-size: 1rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .npm:active {
+      transform: scale(0.98);
+    }
+
+    .playground {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1.2;
+      max-width: 90vw;
+    }
+
+    .playground img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      display: block;
+      border-radius: 4px;
+      flex: 0 0 auto;
+    }
+
+    .playground span {
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Zero Width Unicode Standard</h1>
+
+    <div class="actions">
+      <a
+        class="npm"
+        href="https://www.npmjs.com/package/zwus"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="ZWUS npm package"
+      >npm</a>
+    </div>
+
+    <a
+      class="playground"
+      href="https://inzerosight.pages.dev"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Open inØsight playground"
+    >
+      <img
+        src="https://raw.githubusercontent.com/planetrenox/inzerosight/main/icon_128.png"
+        alt="inØsight logo"
+      >
+      <span>playground: inzerosight.pages.dev</span>
+    </a>
+  </main>
+</body>
+</html>
