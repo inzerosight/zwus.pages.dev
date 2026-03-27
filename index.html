@@ -34,6 +34,13 @@
             padding: 0 1.5rem;
             max-width: 600px;
         }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
         .btn {
             display: inline-flex;
             align-items: center;
@@ -45,11 +52,13 @@
             border-radius: 9999px; /* Fully round */
             font-weight: 700;
             font-size: 1.1rem;
-            margin-bottom: 4rem;
             transition: transform 0.1s ease;
         }
         .btn:active {
             transform: scale(0.95);
+        }
+        .btn.rust {
+            background-color: #ce412b; /* Rust-ish color */
         }
         .playground {
             display: flex;
@@ -76,6 +85,7 @@
         @media (max-width: 400px) {
             h1 { font-size: 2.2rem; }
             .btn { padding: 0.8rem 2rem; font-size: 1rem; }
+            .btn-group { gap: 0.5rem; }
         }
     </style>
 </head>
@@ -83,9 +93,14 @@
 
     <h1>Zero Width Unicode Standard</h1>
     
-    <a href="https://www.npmjs.com/package/zwus" target="_blank" rel="noopener noreferrer" class="btn">
-        npm package
-    </a>
+    <div class="btn-group">
+        <a href="https://www.npmjs.com/package/zwus" target="_blank" rel="noopener noreferrer" class="btn">
+            npm package
+        </a>
+        <a href="https://crates.io/crates/zwus" target="_blank" rel="noopener noreferrer" class="btn rust">
+            rust crate
+        </a>
+    </div>
 
     <div class="playground">
         <img src="https://raw.githubusercontent.com/planetrenox/inzerosight/main/icon_128.png" alt="inØsight logo">
