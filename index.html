@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Zero Width Unicode Standard</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=inter:700,900" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=inter:400,700,900" rel="stylesheet" />
     <style>
         * {
             box-sizing: border-box;
@@ -30,83 +30,73 @@
             font-size: 2.5rem;
             font-weight: 900;
             line-height: 1.1;
-            margin: 0 0 3rem 0;
+            margin: 0 0 2.5rem 0;
             padding: 0 1.5rem;
             max-width: 600px;
         }
-        .btn-group {
-            display: flex;
-            gap: 1rem;
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            width: 320px;
             margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
         }
-        .btn {
+        .grid a {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
             justify-content: center;
-            background-color: #000000;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 1rem 2.5rem;
-            border-radius: 9999px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: transform 0.1s ease;
-        }
-        .btn:active {
-            transform: scale(0.95);
-        }
-        .btn.rust {
-            background-color: #ce412b;
-        }
-        .btn img {
-            width: 22px;
-            height: 22px;
-        }
-        .extensions {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .ext-link {
-            display: inline-flex;
-            align-items: center;
             gap: 0.5rem;
             text-decoration: none;
-            color: #000000;
             font-weight: 700;
-            font-size: 1rem;
-            padding: 0.6rem 1.5rem;
-            border: 2px solid #000000;
+            font-size: 0.95rem;
+            padding: 0.85rem 1rem;
             border-radius: 9999px;
-            transition: transform 0.1s ease, background-color 0.15s ease, color 0.15s ease;
+            transition: transform 0.1s ease, opacity 0.15s ease;
         }
-        .ext-link:hover {
+        .grid a:active {
+            transform: scale(0.95);
+        }
+        .grid a img {
+            width: 20px;
+            height: 20px;
+        }
+        .filled {
+            color: #ffffff;
+            background-color: #000000;
+        }
+        .filled.rust {
+            background-color: #ce412b;
+        }
+        .filled .logo-invert {
+            filter: invert(1);
+        }
+        .outlined {
+            color: #000000;
+            background-color: transparent;
+            border: 2px solid #000000;
+        }
+        .outlined:hover {
             background-color: #000000;
             color: #ffffff;
         }
-        .ext-link:active {
-            transform: scale(0.95);
-        }
-        .ext-link img {
-            width: 22px;
-            height: 22px;
+        .divider {
+            grid-column: 1 / -1;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 0.25rem 0;
         }
         .playground {
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-weight: 700;
-            font-size: 1rem;
+            font-weight: 400;
+            font-size: 0.95rem;
+            color: #666;
         }
         .playground img {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 0.75rem;
+            width: 36px;
+            height: 36px;
+            margin-bottom: 0.6rem;
             border-radius: 8px;
         }
         .playground p {
@@ -114,16 +104,15 @@
         }
         .playground a {
             color: #000000;
+            font-weight: 700;
             text-decoration: underline;
             text-underline-offset: 4px;
         }
 
-        @media (max-width: 400px) {
-            h1 { font-size: 2.2rem; }
-            .btn { padding: 0.8rem 2rem; font-size: 1rem; }
-            .btn-group { gap: 0.5rem; }
-            .extensions { gap: 0.75rem; }
-            .ext-link { padding: 0.5rem 1.2rem; font-size: 0.9rem; }
+        @media (max-width: 360px) {
+            h1 { font-size: 2rem; }
+            .grid { width: 280px; }
+            .grid a { font-size: 0.85rem; padding: 0.7rem 0.8rem; }
         }
     </style>
 </head>
@@ -131,21 +120,21 @@
 
     <h1>Zero Width Unicode Standard</h1>
 
-    <div class="btn-group">
-        <a href="https://www.npmjs.com/package/zwus" target="_blank" rel="noopener noreferrer" class="btn">
-            <img src="assets/npm-logo-black.svg" alt="npm"> npm package
+    <div class="grid">
+        <a href="https://www.npmjs.com/package/zwus" target="_blank" rel="noopener noreferrer" class="filled">
+            <img src="assets/npm-logo-black.svg" alt="npm" class="logo-invert"> npm
         </a>
-        <a href="https://crates.io/crates/zwus" target="_blank" rel="noopener noreferrer" class="btn rust">
-            <img src="assets/Cargo-Logo-Small.png" alt="Cargo"> rust crate
+        <a href="https://crates.io/crates/zwus" target="_blank" rel="noopener noreferrer" class="filled rust">
+            <img src="assets/Cargo-Logo-Small.png" alt="Cargo"> crates.io
         </a>
-    </div>
 
-    <div class="extensions">
-        <a href="https://addons.mozilla.org/en-US/firefox/addon/in0sight/" target="_blank" rel="noopener noreferrer" class="ext-link">
-            <img src="assets/Firefox_logo,_2019.svg" alt="Firefox"> Firefox Add-on
+        <div class="divider"></div>
+
+        <a href="https://addons.mozilla.org/en-US/firefox/addon/in0sight/" target="_blank" rel="noopener noreferrer" class="outlined">
+            <img src="assets/Firefox_logo,_2019.svg" alt="Firefox"> Firefox
         </a>
-        <a href="https://chromewebstore.google.com/detail/acnmohbphjmnbaboacmecidopeplkhog" target="_blank" rel="noopener noreferrer" class="ext-link">
-            <img src="assets/Google_Chrome_icon_(February_2022).svg.png" alt="Chrome"> Chrome Extension
+        <a href="https://chromewebstore.google.com/detail/acnmohbphjmnbaboacmecidopeplkhog" target="_blank" rel="noopener noreferrer" class="outlined">
+            <img src="assets/Google_Chrome_icon_(February_2022).svg.png" alt="Chrome"> Chrome
         </a>
     </div>
 
