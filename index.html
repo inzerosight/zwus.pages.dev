@@ -38,7 +38,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0.75rem;
-            width: 320px;
+            width: 340px;
             margin-bottom: 2.5rem;
         }
         .grid a {
@@ -52,6 +52,7 @@
             padding: 0.85rem 1rem;
             border-radius: 9999px;
             transition: transform 0.1s ease, opacity 0.15s ease;
+            white-space: nowrap;
         }
         .grid a:active {
             transform: scale(0.95);
@@ -109,10 +110,10 @@
             text-underline-offset: 4px;
         }
 
-        @media (max-width: 360px) {
+        @media (max-width: 380px) {
             h1 { font-size: 2rem; }
-            .grid { width: 280px; }
-            .grid a { font-size: 0.85rem; padding: 0.7rem 0.8rem; }
+            .grid { width: 290px; }
+            .grid a { font-size: 0.8rem; padding: 0.7rem 0.6rem; }
         }
     </style>
 </head>
@@ -131,10 +132,10 @@
         <div class="divider"></div>
 
         <a href="https://addons.mozilla.org/en-US/firefox/addon/in0sight/" target="_blank" rel="noopener noreferrer" class="outlined">
-            <img src="assets/Firefox_logo,_2019.svg" alt="Firefox"> Firefox
+            <img src="assets/Firefox_logo,_2019.svg" alt="Firefox"> Firefox Add-on
         </a>
         <a href="https://chromewebstore.google.com/detail/acnmohbphjmnbaboacmecidopeplkhog" target="_blank" rel="noopener noreferrer" class="outlined">
-            <img src="assets/Google_Chrome_icon_(February_2022).svg.png" alt="Chrome"> Chrome
+            <img src="assets/Google_Chrome_icon_(February_2022).svg.png" alt="Chrome"> Chrome Extension
         </a>
     </div>
 
