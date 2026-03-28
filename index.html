@@ -16,7 +16,7 @@
             padding: 0;
             width: 100vw;
             height: 100vh;
-            overflow: hidden; /* No scroll */
+            overflow: hidden;
             background-color: #ffffff;
             color: #000000;
             font-family: 'Inter', sans-serif;
@@ -37,19 +37,20 @@
         .btn-group {
             display: flex;
             gap: 1rem;
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem;
             flex-wrap: wrap;
             justify-content: center;
         }
         .btn {
             display: inline-flex;
             align-items: center;
+            gap: 0.6rem;
             justify-content: center;
             background-color: #000000;
             color: #ffffff;
             text-decoration: none;
             padding: 1rem 2.5rem;
-            border-radius: 9999px; /* Fully round */
+            border-radius: 9999px;
             font-weight: 700;
             font-size: 1.1rem;
             transition: transform 0.1s ease;
@@ -58,7 +59,42 @@
             transform: scale(0.95);
         }
         .btn.rust {
-            background-color: #ce412b; /* Rust-ish color */
+            background-color: #ce412b;
+        }
+        .btn img {
+            width: 22px;
+            height: 22px;
+        }
+        .extensions {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .ext-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #000000;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.6rem 1.5rem;
+            border: 2px solid #000000;
+            border-radius: 9999px;
+            transition: transform 0.1s ease, background-color 0.15s ease, color 0.15s ease;
+        }
+        .ext-link:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .ext-link:active {
+            transform: scale(0.95);
+        }
+        .ext-link img {
+            width: 22px;
+            height: 22px;
         }
         .playground {
             display: flex;
@@ -71,7 +107,7 @@
             width: 40px;
             height: 40px;
             margin-bottom: 0.75rem;
-            border-radius: 8px; /* Smooth out the icon edges a bit */
+            border-radius: 8px;
         }
         .playground p {
             margin: 0;
@@ -81,24 +117,35 @@
             text-decoration: underline;
             text-underline-offset: 4px;
         }
-        
+
         @media (max-width: 400px) {
             h1 { font-size: 2.2rem; }
             .btn { padding: 0.8rem 2rem; font-size: 1rem; }
             .btn-group { gap: 0.5rem; }
+            .extensions { gap: 0.75rem; }
+            .ext-link { padding: 0.5rem 1.2rem; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
     <h1>Zero Width Unicode Standard</h1>
-    
+
     <div class="btn-group">
         <a href="https://www.npmjs.com/package/zwus" target="_blank" rel="noopener noreferrer" class="btn">
-            npm package
+            <img src="assets/npm-logo-black.svg" alt="npm"> npm package
         </a>
         <a href="https://crates.io/crates/zwus" target="_blank" rel="noopener noreferrer" class="btn rust">
-            rust crate
+            <img src="assets/Cargo-Logo-Small.png" alt="Cargo"> rust crate
+        </a>
+    </div>
+
+    <div class="extensions">
+        <a href="https://addons.mozilla.org/en-US/firefox/addon/in0sight/" target="_blank" rel="noopener noreferrer" class="ext-link">
+            <img src="assets/Firefox_logo,_2019.svg" alt="Firefox"> Firefox Add-on
+        </a>
+        <a href="https://chromewebstore.google.com/detail/acnmohbphjmnbaboacmecidopeplkhog" target="_blank" rel="noopener noreferrer" class="ext-link">
+            <img src="assets/Google_Chrome_icon_(February_2022).svg.png" alt="Chrome"> Chrome Extension
         </a>
     </div>
 
