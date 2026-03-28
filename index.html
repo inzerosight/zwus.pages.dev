@@ -7,6 +7,12 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,700,900" rel="stylesheet" />
     <style>
+        :root {
+            --pad: 16px;
+            --content-max: 760px;
+            --grid-max: 340px;
+        }
+
         * {
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
@@ -17,9 +23,10 @@
             padding: 0;
             width: 100%;
             min-height: 100%;
-            background-color: #ffffff;
-            color: #000000;
+            background: #fff;
+            color: #000;
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
 
         body {
@@ -30,34 +37,33 @@
             min-height: 100vh;
             min-height: 100svh;
             min-height: 100dvh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow-x: hidden;
             overflow-y: auto;
-            padding:
-                max(16px, env(safe-area-inset-top))
-                16px
-                max(20px, env(safe-area-inset-bottom));
+            padding-top: max(48px, env(safe-area-inset-top));
+            padding-right: max(var(--pad), env(safe-area-inset-right));
+            padding-bottom: max(24px, env(safe-area-inset-bottom));
+            padding-left: max(var(--pad), env(safe-area-inset-left));
+        }
+
+        .content {
+            width: min(100%, var(--content-max));
+            margin-inline: auto;   /* hard centering */
+            text-align: center;
         }
 
         h1 {
             font-size: clamp(2rem, 8vw, 2.6rem);
             font-weight: 900;
             line-height: 1.1;
-            margin: 0 0 2.2rem 0;
+            margin: 0 0 2.2rem;
             padding: 0 1rem;
-            max-width: 600px;
         }
 
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0.75rem;
-            width: min(100%, 340px);
-            margin-bottom: 2.2rem;
+            width: min(100%, var(--grid-max));
+            margin: 0 auto 2.2rem; /* hard centering */
         }
 
         .grid a {
@@ -70,7 +76,7 @@
             font-size: 0.95rem;
             padding: 0.85rem 1rem;
             border-radius: 9999px;
-            transition: transform 0.1s ease, opacity 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+            transition: transform .1s ease, opacity .15s ease, background-color .15s ease, color .15s ease;
             white-space: nowrap;
         }
 
@@ -86,12 +92,12 @@
         }
 
         .filled {
-            color: #ffffff;
-            background-color: #000000;
+            color: #fff;
+            background: #000;
         }
 
         .filled.rust {
-            background-color: #ce412b;
+            background: #ce412b;
         }
 
         .filled .logo-invert {
@@ -99,14 +105,14 @@
         }
 
         .outlined {
-            color: #000000;
-            background-color: transparent;
-            border: 2px solid #000000;
+            color: #000;
+            background: transparent;
+            border: 2px solid #000;
         }
 
         .outlined:hover {
-            background-color: #000000;
-            color: #ffffff;
+            background: #000;
+            color: #fff;
         }
 
         .divider {
@@ -120,9 +126,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-weight: 400;
             font-size: 0.95rem;
             color: #666;
+            width: min(100%, var(--grid-max));
+            margin: 0 auto; /* hard centering */
         }
 
         .playground img {
@@ -138,53 +145,47 @@
         }
 
         .playground a {
-            color: #000000;
+            color: #000;
             font-weight: 700;
             text-decoration: underline;
             text-underline-offset: 4px;
         }
 
-        /* Keep desktop centered, but on phones move content upward naturally */
-        @media (max-width: 768px) {
-            .page {
-                justify-content: flex-start;
-                padding-top: max(48px, env(safe-area-inset-top));
-            }
-        }
-
         @media (max-width: 380px) {
+            :root { --grid-max: 290px; }
             h1 { font-size: 2rem; }
-            .grid { width: min(100%, 290px); }
-            .grid a { font-size: 0.8rem; padding: 0.7rem 0.6rem; }
+            .grid a { font-size: .8rem; padding: .7rem .6rem; }
         }
     </style>
 </head>
 <body>
     <main class="page">
-        <h1>Zero Width Unicode Standard</h1>
+        <section class="content">
+            <h1>Zero Width Unicode Standard</h1>
 
-        <div class="grid">
-            <a href="https://www.npmjs.com/package/zwus" target="_blank" rel="noopener noreferrer" class="filled">
-                <img src="assets/npm-logo-black.svg" alt="npm" class="logo-invert"> npm
-            </a>
-            <a href="https://crates.io/crates/zwus" target="_blank" rel="noopener noreferrer" class="filled rust">
-                <img src="assets/Cargo-Logo-Small.png" alt="Cargo"> crates.io
-            </a>
+            <div class="grid">
+                <a href="https://www.npmjs.com/package/zwus" target="_blank" rel="noopener noreferrer" class="filled">
+                    <img src="assets/npm-logo-black.svg" alt="npm" class="logo-invert"> npm
+                </a>
+                <a href="https://crates.io/crates/zwus" target="_blank" rel="noopener noreferrer" class="filled rust">
+                    <img src="assets/Cargo-Logo-Small.png" alt="Cargo"> crates.io
+                </a>
 
-            <div class="divider"></div>
+                <div class="divider"></div>
 
-            <a href="https://addons.mozilla.org/en-US/firefox/addon/in0sight/" target="_blank" rel="noopener noreferrer" class="outlined">
-                <img src="assets/Firefox_logo,_2019.svg" alt="Firefox"> Firefox Add-on
-            </a>
-            <a href="https://chromewebstore.google.com/detail/acnmohbphjmnbaboacmecidopeplkhog" target="_blank" rel="noopener noreferrer" class="outlined">
-                <img src="assets/Google_Chrome_icon_(February_2022).svg.png" alt="Chrome"> Chrome Extension
-            </a>
-        </div>
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/in0sight/" target="_blank" rel="noopener noreferrer" class="outlined">
+                    <img src="assets/Firefox_logo,_2019.svg" alt="Firefox"> Firefox Add-on
+                </a>
+                <a href="https://chromewebstore.google.com/detail/acnmohbphjmnbaboacmecidopeplkhog" target="_blank" rel="noopener noreferrer" class="outlined">
+                    <img src="assets/Google_Chrome_icon_(February_2022).svg.png" alt="Chrome"> Chrome Extension
+                </a>
+            </div>
 
-        <div class="playground">
-            <img src="https://raw.githubusercontent.com/planetrenox/inzerosight/main/icon_128.png" alt="inØsight logo">
-            <p>playground: <a href="https://inzerosight.pages.dev" target="_blank" rel="noopener noreferrer">inzerosight.pages.dev</a></p>
-        </div>
+            <div class="playground">
+                <img src="https://raw.githubusercontent.com/planetrenox/inzerosight/main/icon_128.png" alt="inØsight logo">
+                <p>playground: <a href="https://inzerosight.pages.dev" target="_blank" rel="noopener noreferrer">inzerosight.pages.dev</a></p>
+            </div>
+        </section>
     </main>
 </body>
 </html>
