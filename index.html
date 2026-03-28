@@ -7,12 +7,6 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,700,900" rel="stylesheet" />
     <style>
-        :root {
-            --content-max: 760px;
-            --grid-max: 340px;
-            --pad-x: 16px;
-        }
-
         * {
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
@@ -22,62 +16,64 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            min-height: 100%;
-            background: #fff;
-            color: #000;
+            height: 100%;
+            overflow: hidden;
+            background-color: #ffffff;
+            color: #000000;
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
         }
 
         body {
-            min-height: 100vh;
-            min-height: 100dvh;
+            display: grid;
+            place-items: center; /* true vertical + horizontal centering */
+            text-align: center;
             -webkit-text-size-adjust: 100%;
+            padding: 12px;
+            padding-top: max(12px, env(safe-area-inset-top));
+            padding-bottom: max(12px, env(safe-area-inset-bottom));
         }
 
         .page {
-            width: min(100%, var(--content-max));
-            margin-inline: auto; /* TRUE horizontal centering */
-            text-align: center;
-            padding:
-                max(48px, env(safe-area-inset-top))
-                var(--pad-x)
-                max(24px, env(safe-area-inset-bottom));
+            width: min(100%, 760px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
-            margin: 0 0 2.2rem;
-            padding: 0 1rem;
-            font-size: clamp(2rem, 8vw, 2.6rem);
+            font-size: 2.5rem;
             font-weight: 900;
             line-height: 1.1;
+            margin: 0 0 2.5rem 0;
+            padding: 0 1rem;
+            max-width: 600px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 0.75rem;
-            width: min(100%, var(--grid-max));
-            margin: 0 auto 2.2rem; /* centered */
+            width: min(100%, 380px); /* slightly wider so outlined btn text fits */
+            margin-bottom: 2.5rem;
         }
 
         .grid a {
-            width: 100%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            min-width: 0;
             text-decoration: none;
-            white-space: nowrap;
             font-weight: 700;
-            font-size: 0.95rem;
-            padding: 0.85rem 1rem;
+            font-size: clamp(0.86rem, 3.2vw, 0.95rem);
+            padding: 0.85rem 0.8rem;
             border-radius: 9999px;
-            transition: transform 0.1s ease, opacity 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+            transition: transform 0.1s ease, opacity 0.15s ease;
+            white-space: nowrap;
         }
 
         .grid a:active {
-            transform: scale(0.97);
+            transform: scale(0.95);
         }
 
         .grid a img {
@@ -85,16 +81,15 @@
             height: 20px;
             object-fit: contain;
             flex: 0 0 20px;
-            display: block;
         }
 
         .filled {
-            color: #fff;
-            background: #000;
+            color: #ffffff;
+            background-color: #000000;
         }
 
         .filled.rust {
-            background: #ce412b;
+            background-color: #ce412b;
         }
 
         .filled .logo-invert {
@@ -102,14 +97,14 @@
         }
 
         .outlined {
-            color: #000;
-            background: transparent;
-            border: 2px solid #000;
+            color: #000000;
+            background-color: transparent;
+            border: 2px solid #000000;
         }
 
         .outlined:hover {
-            background: #000;
-            color: #fff;
+            background-color: #000000;
+            color: #ffffff;
         }
 
         .divider {
@@ -120,13 +115,12 @@
         }
 
         .playground {
-            width: min(100%, var(--grid-max));
-            margin: 0 auto; /* centered */
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: #666;
+            font-weight: 400;
             font-size: 0.95rem;
+            color: #666;
         }
 
         .playground img {
@@ -134,7 +128,6 @@
             height: 36px;
             margin-bottom: 0.6rem;
             border-radius: 8px;
-            display: block;
         }
 
         .playground p {
@@ -142,16 +135,23 @@
         }
 
         .playground a {
-            color: #000;
+            color: #000000;
             font-weight: 700;
             text-decoration: underline;
             text-underline-offset: 4px;
         }
 
         @media (max-width: 380px) {
-            :root { --grid-max: 290px; }
             h1 { font-size: 2rem; }
+            .grid { width: min(100%, 300px); }
             .grid a { font-size: 0.8rem; padding: 0.7rem 0.6rem; }
+        }
+
+        @media (max-width: 340px) {
+            .grid {
+                grid-template-columns: 1fr;
+                width: min(100%, 280px);
+            }
         }
     </style>
 </head>
